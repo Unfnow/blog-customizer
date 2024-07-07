@@ -9,11 +9,11 @@ module.exports = {
 		react: {
 			version: 'detect',
 		},
-		"import/resolver": {
+		'import/resolver': {
 			typescript: {
-				project: "tsconfig.json",
-			}
-		}
+				project: 'tsconfig.json',
+			},
+		},
 	},
 	extends: [
 		'plugin:@typescript-eslint/recommended',
@@ -30,8 +30,8 @@ module.exports = {
 		semi: [2, 'always'],
 		quotes: [2, 'single', { avoidEscape: true }],
 		'no-unused-vars': 'off',
-		'@typescript-eslint/no-unused-vars': ['error'],
-		'@typescript-eslint/no-var-requires': 'off',
+		'@typescript-eslint/no-unused-vars': ['warn'],
+		'@typescript-eslint/no-var-requires': 'off', //TODO:
 		'react/prop-types': 'off',
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',

@@ -3,6 +3,7 @@ const path = require('path');
 
 const config: StorybookConfig = {
 	stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+
 	addons: [
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
@@ -60,7 +61,10 @@ const config: StorybookConfig = {
 				],
 			},
 		},
+		'@storybook/addon-webpack5-compiler-swc',
+		'@chromatic-com/storybook',
 	],
+
 	webpackFinal: async (config) => {
 		if (config?.resolve?.alias) {
 			config.resolve.alias = {
@@ -72,14 +76,14 @@ const config: StorybookConfig = {
 
 		return config;
 	},
+
 	framework: {
 		name: '@storybook/react-webpack5',
 		options: {
-			builder: {
-				useSWC: true,
-			},
+			builder: {},
 		},
 	},
+
 	swc: () => ({
 		jsc: {
 			transform: {
@@ -89,8 +93,11 @@ const config: StorybookConfig = {
 			},
 		},
 	}),
-	docs: {
-		autodocs: 'tag',
+
+	docs: {},
+
+	typescript: {
+		reactDocgen: 'react-docgen-typescript',
 	},
 };
 export default config;

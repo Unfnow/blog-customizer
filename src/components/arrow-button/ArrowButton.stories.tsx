@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { ArrowButton } from './ArrowButton';
 
@@ -10,10 +11,11 @@ export default meta;
 type Story = StoryObj<typeof ArrowButton>;
 
 export const ArrowButtonStory: Story = {
-	render: () => {
+	argTypes: { isEnabled: { control: 'boolean' } },
+	render: ({ isEnabled }) => {
 		return (
 			<>
-				<ArrowButton />
+				<ArrowButton onClick={action('opened')} isEnabled={isEnabled} />
 			</>
 		);
 	},
